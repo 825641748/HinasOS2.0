@@ -18,6 +18,9 @@ app.post('/terminal/exec', (req, res) => {
 	CMD(command).then(result => {
 		res.header('Content-Type', 'application/json; charset=utf-8');
 		res.send(result);
+	}).catch(error => {
+		res.header('Content-Type', 'application/json; charset=utf-8');
+		res.send(error);
 	})
 });
 
