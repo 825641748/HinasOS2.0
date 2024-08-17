@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Web Terminal</title>
+	</head>
+	<body>
+		<input type="text" id="commandInput" placeholder="Enter command">
+		<button onclick="executeCommand()">Execute</button>
+		<pre id="output"></pre>
+
+		<script>
+			function executeCommand() {
+				const command = document.getElementById('commandInput').value;
+				console.log(command);
+				fetch('/terminal/exec', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							command
+						}),
+					})
+					.then(response => response.json())
+					.then(data => {
+						document.getElementById('output').textContent = data.output;
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+			}
+		</script>
+	</body>
+</html>
