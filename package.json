@@ -1,0 +1,12 @@
+{
+	"name": "hinasos2.0",
+	"version": "1.0.0",
+	"description": "去掉所有不必要的程序，做到最精简，用户根据自己需要自行一键安装！",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
